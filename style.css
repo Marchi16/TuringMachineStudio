@@ -422,34 +422,6 @@ body{
 }
 
 /* ===========================
- ROADMAP
-=========================== */
-
-.roadmap{
-    padding:100px;
-    text-align:center;
-}
-
-.timeline{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin-top:40px;
-}
-
-.timeline div{
-    padding:18px 30px;
-    background:white;
-    border-radius:50px;
-    box-shadow:var(--shadow);
-}
-
-.active{
-    background:var(--primary)!important;
-    color:white;
-}
-
-/* ===========================
  FOOTER
 =========================== */
 
