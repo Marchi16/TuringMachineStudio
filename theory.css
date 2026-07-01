@@ -1,0 +1,277 @@
+/* ==========================================
+   THEORY PAGE
+========================================== */
+
+.theory-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:60px;
+
+}
+
+.theory-container h1{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#64748B;
+
+    font-size:20px;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.theory-layout{
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    gap:35px;
+
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.theory-sidebar{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    height:fit-content;
+
+}
+
+.topic{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#F1F5F9;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.topic:hover{
+
+    background:#DBEAFE;
+
+}
+
+.topic.active{
+
+    background:#ffffff;
+
+    color:white;
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.theory-content{
+
+    background:white;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    padding:40px;
+
+    min-height:650px;
+
+}
+
+.theory-content h2{
+
+    color:#acb6c5;
+
+    margin-bottom:25px;
+
+    font-size:34px;
+
+}
+
+.theory-content p{
+
+    color:#ffffff;
+
+    line-height:1.9;
+
+    font-size:18px;
+
+}
+
+.theory-content ul{
+
+    padding-left:25px;
+
+    line-height:2;
+
+    color:#f7f7f7;
+
+    font-size:18px;
+
+}
+
+.theory-content ol{
+
+    padding-left:25px;
+
+    line-height:2;
+
+    color:#ffffff;
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.primary-btn{
+
+    margin-top:35px;
+
+    padding:15px 30px;
+
+    background:#2563EB;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+.theory-section{
+
+    display:none;
+
+    animation:fade .35s;
+
+}
+
+.theory-section.active{
+
+    display:block;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.theory-layout{
+
+    grid-template-columns:1fr;
+
+}
+
+.theory-sidebar{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.topic{
+
+    margin-bottom:0;
+
+}
+
+.theory-container{
+
+    padding:25px;
+
+}
+
+.theory-content{
+
+    padding:25px;
+
+}
+
+}

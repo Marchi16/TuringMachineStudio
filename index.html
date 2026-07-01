@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Turing Machine Studio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-circle">TM</span>
+
+            <div>
+                <h2>Turing Machine Studio</h2>
+                <p data-i18n="tagline">Interactive Learning Platform</p>
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="index.html" class="nav-active" data-i18n="nav_home">Home</a></li>
+            <li><a href="simulator.html" data-i18n="nav_simulator">Simulator</a></li>
+            <li><a href="builder.html" data-i18n="nav_builder">Builder</a></li>
+            <li><a href="theory.html" data-i18n="nav_theory">Theory</a></li>
+            <li><a href="examples.html" data-i18n="nav_examples">Examples</a></li>
+            <li><a href="exercises.html" data-i18n="nav_exercises">Exercises</a></li>
+            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+        </ul>
+
+
+        <div class="lang-toggle" id="langToggle">
+            <button id="langEL" class="lang-btn" data-lang="el">ΕΛ</button>
+            <button id="langEN" class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </nav>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+        <div class="hero-left">
+            <h1>
+                <span data-i18n="hero_title_main">Learn Turing Machines</span>
+                <span data-i18n="hero_title_highlight">Interactively</span>
+            </h1>
+
+            <p data-i18n="hero_desc">
+                Design, simulate and visualize Turing Machines through
+                an intuitive educational environment.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" data-i18n="btn_launch_sim"> Launch Simulator </button>
+                <button class="secondary-btn" data-i18n="btn_view_examples">b View Examples </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-right">
+            <div class="mock-window">
+                <div class="window-header">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+                <div class="mock-content">
+                    <div class="state">
+                        <span data-i18n="mock_state_label">State</span> : q1
+                    </div>
+
+                    <div class="tape">
+                        □ □ a a b b □ □
+                    </div>
+
+                    <div class="head">
+                        ↑
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+        <h2 data-i18n="features_heading">Features</h2>
+        <div class="cards">
+            <div class="card">
+                <h3 data-i18n="card_simulator_title">Simulator</h3>
+                <p data-i18n="card_simulator_desc">
+                    Execute any Turing Machine
+                    step-by-step.
+                </p>
+
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="card_builder_title">Machine Builder</h3>
+                <p data-i18n="card_builder_desc">
+                    Build your own machine
+                    visually.
+                </p>
+
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="card_theory_title">Theory</h3>
+                <p data-i18n="card_theory_desc">
+                    Learn every concept with
+                    examples.
+                </p>
+
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="card_exercises_title">Exercises</h3>
+                <p data-i18n="card_exercises_desc">
+                    Practice using interactive
+                    assignments.
+                </p>
+
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="card_visualization_title">Visualization</h3>
+                <p data-i18n="card_visualization_desc">
+                    Observe tape movement
+                    and state transitions.
+                </p>
+
+            </div>
+
+            <div class="card">
+                <h3 data-i18n="card_export_title">Export</h3>
+                <p data-i18n="card_export_desc">
+                    Save your machines
+                    and share them.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ================= ROADMAP ================= -->
+
+    <section class="roadmap">
+        <h2 data-i18n="roadmap_heading">Platform Modules</h2>
+        <div class="timeline">
+            <div>
+                DFA
+            </div>
+
+            <div>
+                PDA
+            </div>
+
+            <div class="active">
+                TM
+            </div>
+
+            <div data-i18n="roadmap_exercises">
+                Exercises
+            </div>
+
+            <div data-i18n="roadmap_challenges">
+                Challenges
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>Turing Machine Studio</h3>
+        <p data-i18n="footer_dept">
+            Department of Computer Engineering &
+            Informatics
+        </p>
+
+        <p data-i18n="footer_university">
+            University of Patras
+        </p>
+
+        <p>
+            © 2026
+        </p>
+
+    </footer>
+
+
+    <!-- ================= HELP BUTTON / MODAL ================= -->
+
+    <button id="helpButton" class="help-button" data-i18n-title="help_tooltip" title="Help">?</button>
+
+    <div id="helpModal" class="help-modal">
+        <div class="help-modal-content">
+            <button id="closeHelp" class="help-close">&times;</button>
+            <h2 data-i18n="help_title_home">How to use the platform</h2>
+            <ul>
+
+                <li data-i18n="help_home_1">Go to "Builder" to create your own Turing Machine visually.</li>
+                <li data-i18n="help_home_2">Use the "Simulator" to run and step through a machine.</li>
+                <li data-i18n="help_home_3">In "Theory" you'll find explanations and examples for every concept.</li>
+                <li data-i18n="help_home_4">In "Exercises" you can practice with interactive problems.</li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+
+</html>

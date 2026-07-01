@@ -1,0 +1,578 @@
+/* ==========================================
+   BUILDER PAGE
+========================================== */
+
+.builder{
+    max-width:1400px;
+    margin:auto;
+    padding:60px;
+}
+
+.builder h1{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+
+    color:#64748B;
+    font-size:20px;
+    margin-bottom:40px;
+}
+
+
+/* ==========================================
+   PANELS
+========================================== */
+
+.panel{
+
+    background:white;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    padding:30px;
+    margin-bottom:35px;
+
+}
+
+.panel h2{
+    margin-bottom:20px;
+    color:#1E293B;
+}
+
+/* ==========================================
+   STATE CONTROLS
+========================================== */
+
+.state-controls{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+.state-controls input{
+    flex:1;
+    padding:14px;
+    border:2px solid #CBD5E1;
+    border-radius:10px;
+    font-size:16px;
+
+}
+
+.state-controls input:focus{
+    outline:none;
+    border-color:#2563EB;
+}
+
+.state-controls button{
+
+    padding:14px 25px;
+    background:#2563EB;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+
+}
+
+.state-controls button:hover{
+    transform:translateY(-2px);
+}
+
+/* ==========================================
+   STATE LIST
+========================================== */
+
+#stateList{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+
+}
+
+.state-badge{
+
+    background:#2563EB;
+    color:white;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:600;
+
+}
+
+/* ==========================================
+   GRAPH
+========================================== */
+
+#graph{
+
+    width:100%;
+    height:450px;
+    border:2px solid #CBD5E1;
+    border-radius:15px;
+    background:#FAFBFC;
+
+}
+
+/* ==========================================
+   GRAPH BUTTONS
+========================================== */
+
+.graph-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+
+}
+
+.graph-buttons button{
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#2563EB;
+    color:white;
+    font-size:16px;
+    transition:.3s;
+
+}
+
+.graph-buttons button:hover{
+    transform:translateY(-3px);
+}
+
+#deleteSelected{
+    background:#DC2626;
+}
+
+/* ==========================================
+   JSON BOX
+========================================== */
+
+pre{
+
+    background:#0F172A;
+    color:#F8FAFC;
+    padding:20px;
+    border-radius:12px;
+    overflow:auto;
+    font-size:15px;
+    min-height:220px;
+
+}
+
+/* ==========================================
+   FOOTER BUTTONS
+========================================== */
+
+.builder-buttons{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+
+}
+
+.builder-buttons button{
+    padding:15px 30px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    background:#2563EB;
+    color:white;
+    transition:.3s;
+
+}
+
+.builder-buttons button:hover{
+    transform:translateY(-3px);
+}
+
+#clearMachine{
+    background:#EF4444;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.builder{
+    padding:25px;
+}
+
+.state-controls{
+    flex-direction:column;
+}
+
+.graph-buttons{
+    flex-direction:column;
+}
+
+.builder-buttons{
+    flex-direction:column;
+}
+
+.transition-form{
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.transition-form select, 
+.transition-form input{
+    width:100%;
+}
+
+#graph{
+
+height:650px;
+background:white;
+border-radius:15px;
+border:2px solid #CBD5E1;
+margin-top:20px;
+
+}
+
+.graph-buttons{
+
+margin-top:25px;
+display:flex;
+gap:15px;
+
+}
+
+.graph-buttons button{
+padding:15px 25px;
+background:#2563EB;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:17px;
+transition:.3s;
+
+}
+
+.graph-buttons button:hover{
+transform:translateY(-3px);
+
+}
+
+#deleteSelected{
+background:#DC2626;
+}
+
+}
+
+/* =====================================
+   CONTEXT MENU
+===================================== */
+
+.context-menu{
+    position:absolute;
+    display:none;
+    flex-direction:column;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    overflow:hidden;
+    z-index:9999;
+
+}
+
+.context-menu button{
+    padding:12px 20px;
+    border:none;
+    background:white;
+    cursor:pointer;
+    text-align:left;
+    font-size:15px;
+
+}
+
+.context-menu button:hover{
+    background:#EFF6FF;
+}
+
+/* ==========================================
+   TRANSITION FORM
+========================================== */
+.transition-form{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.transition-form select,
+.transition-form input{
+    padding: 14px;
+    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #1E293B;
+    background: white;
+    transition: .3s;
+}
+
+.transition-form select:focus,
+.transition-form input:focus{
+    outline:none;
+    border-color: #2563EB;
+}
+
+.transition-form input{ 
+    width: 90px;
+}
+
+.transition-form select#fromState,
+.transition-form select#toState{
+    min-width: 110px;
+    font-weight: 600;
+    flex: 1;
+}
+
+.transition-form select#moveDirection{
+    min-width: 120px;
+}
+
+/* ==========================================
+   TRANSITIONS TABLE
+========================================== */
+.panel table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.panel thead th{
+    text-align: left;
+    padding: 12px 14px;
+    color: #64748B;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+.panel tbody td{
+    padding: 12px 14px;
+    font-size: 15px;
+    color: #1E293B;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.panel tbody tr:hover{
+    background: #F8FAFC;
+}
+
+/* ==========================================
+   LANGUAGE TOGGLE
+========================================== */
+
+.lang-toggle{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:#F4F7FC;
+    border-radius:30px;
+    padding:5px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.lang-btn{
+
+    border:none;
+    background:transparent;
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    color:#64748B;
+    transition:.2s;
+
+}
+
+.lang-btn:hover{
+
+    background:#EFF6FF;
+
+}
+
+.lang-btn.active{
+
+    background:#2563EB;
+    color:white;
+
+}
+
+/* ==========================================
+   HELP BUTTON
+========================================== */
+
+.help-button{
+
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#2563EB;
+    color:white;
+    border:none;
+    font-size:24px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(37,99,235,.4);
+    transition:.3s;
+    z-index:1000;
+
+}
+
+.help-button:hover{
+
+    transform:translateY(-3px) scale(1.05);
+
+}
+
+/* ==========================================
+   HELP MODAL
+========================================== */
+
+.help-modal{
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(15,23,42,.6);
+    align-items:center;
+    justify-content:center;
+    z-index:2000;
+
+}
+
+.help-modal-content{
+
+    background:white;
+    border-radius:16px;
+    padding:35px;
+    max-width:500px;
+    width:90%;
+    position:relative;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+}
+
+.help-modal-content h2{
+
+    margin-bottom:20px;
+    color:#1E293B;
+
+}
+
+.help-modal-content ul{
+
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding-left:20px;
+    color:#334155;
+    line-height:1.5;
+
+}
+
+.help-close{
+
+    position:absolute;
+    top:15px;
+    right:20px;
+    border:none;
+    background:transparent;
+    font-size:24px;
+    cursor:pointer;
+    color:#64748B;
+
+}
+
+.help-close:hover{
+
+    color:#1E293B;
+
+}
+
+@media(max-width:900px){
+
+    .lang-toggle{
+
+        top:10px;
+        right:10px;
+
+    }
+
+    .help-button{
+
+        bottom:20px;
+        right:20px;
+
+    }
+
+}
+
+/* ================================
+   MACHINE INFO
+================================ */
+
+.machine-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.machine-info label{
+
+    font-weight:600;
+
+    color:#1E293B;
+
+}
+
+.machine-info input,
+.machine-info textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #CBD5E1;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-family:inherit;
+
+}
+
+.machine-info textarea{
+
+    resize:vertical;
+
+}
+

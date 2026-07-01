@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Machine Builder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/builder.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+    <span class="logo-circle">TM</span>
+            <div>
+            <h2>Turing Machine Studio</h2>
+            <p data-i18n="tagline">Interactive Learning Platform</p>
+            </div>
+
+    </div>
+
+    <ul>
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+            <li><a href="simulator.html" data-i18n="nav_simulator">Simulator</a></li>
+            <li><a href="builder.html" class="nav-active" data-i18n="nav_builder">Builder</a></li>
+            <li><a href="theory.html" data-i18n="nav_theory">Theory</a></li>
+            <li><a href="examples.html" data-i18n="nav_examples">Examples</a></li>
+            <li><a href="exercises.html" data-i18n="nav_exercises">Exercises</a></li>
+            <li><a href="about.html" data-i18n="nav_about">About</a></li> 
+        </ul>
+
+     <!-- ================= LANGUAGE TOGGLE ================= -->
+
+    <div class="lang-toggle" id="langToggle">
+
+        <button id="langEL" class="lang-btn" data-lang="el">ΕΛ</button>
+        <button id="langEN" class="lang-btn" data-lang="en">EN</button>
+
+    </div>
+
+</nav>
+
+<main class="builder">
+
+        <h1 data-i18n="builder_title">Machine Builder</h1>
+        <p class="subtitle" data-i18n="builder_subtitle"> Create a Turing Machine visually. </p>
+
+ <!-- ================= STATES ================= -->
+
+    <h2 data-i18n="machine_info_title">Machine Information</h2>
+
+    <div class="machine-info">
+
+        <label data-i18n="language_label">Language</label>
+
+        <input
+            id="languageInput"
+            type="text"
+            data-i18n-placeholder="language_placeholder"
+            placeholder="Example: L = { aⁿbⁿ }">
+
+        <label data-i18n="description_label">Description</label>
+
+        <textarea
+            id="descriptionInput"
+            rows="4"
+            data-i18n-placeholder="description_placeholder"
+            placeholder="Describe how your machine works..."></textarea>
+
+        <label data-i18n="author_label">Author</label>
+
+        <input
+            id="authorInput"
+            type="text"
+            data-i18n-placeholder="author_placeholder"
+            placeholder="Your name">
+
+    </div>
+    <section class="panel">
+
+       <h2 data-i18n="machine_graph">
+            Machine Graph
+        </h2>
+
+        <div id="graph"></div>
+        <div class="graph-buttons">
+            <button id="addState" data-i18n="btn_add_state"> ➕ Add State </button>
+            <button id="addTransitionForm" data-i18n="btn_add_transition"> Add Transition </button>
+            <button id="deleteSelected" data-i18n="btn_delete"> 🗑 Delete </button>
+        </div>
+
+    </section>
+
+<!-- ================= TRANSITIONS ================= -->
+
+    <section class="panel">
+
+        <h2 data-i18n="panel_transitions">Transitions</h2>
+        <div class="transition-form">
+            <select id="fromState"></select>
+            <input id="readSymbol" placeholder="Read" data-i18n-placeholder="ph_read">
+
+            <input id="writeSymbol" placeholder="Write" data-i18n-placeholder="ph_write">
+            <select id="moveDirection">
+                <option value="L" data-i18n="move_left">Left</option>
+                <option value="R" data-i18n="move_right">Right</option>
+                <option value="S" data-i18n="move_stay">Stay</option>
+            </select>
+
+            <select id="toState"></select>
+
+        </div>
+
+    <table>
+        <thead>
+            <tr>
+
+                <th data-i18n="th_from">From</th>
+                <th data-i18n="th_read">Read</th>
+                <th data-i18n="th_write">Write</th>
+                <th data-i18n="th_move">Move</th>
+                <th data-i18n="th_to">To</th>
+                <th></th>
+
+            </tr>
+
+        </thead>
+            <tbody id="transitionTable"></tbody>
+
+    </table>
+
+    </section>
+
+<!-- ================= MACHINE ================= -->
+
+        <section class="panel">
+            <h2 data-i18n="machine_json">
+                Machine JSON
+            </h2>
+            <pre id="machineJSON"> No machine yet. </pre>
+        </section>
+
+        <div class="builder-buttons">
+
+    <button
+    id="saveMachine"
+    data-i18n="save_machine">
+    Save Machine
+    </button>
+
+    <button id="exportMachine">
+        Export JSON
+    </button>
+
+    <button id="importMachine">
+        Import JSON
+    </button>
+
+   <button
+    id="clearMachine"
+    data-i18n="clear_machine">
+    Clear
+    </button>
+
+    <button
+    id="openSimulator"
+    data-i18n="open_simulator">
+    Open Simulator
+    </button>
+
+    <input
+        type="file"
+        id="importFile"
+        accept=".json"
+        style="display:none;">
+
+</div>
+
+</main>
+
+<div id="contextMenu" class="context-menu">
+    <button id="setStart" data-i18n="ctx_start">🟢 Set Start</button>
+    <button id="setAccept" data-i18n="ctx_accept">✅ Set Accept</button>
+    <button id="setReject" data-i18n="ctx_reject">❌ Set Reject</button>
+</div>
+
+<!-- ================= HELP BUTTON / MODAL ================= -->
+
+<button id="helpButton" class="help-button" data-i18n-title="help_tooltip" title="Help">?</button>
+
+<div id="helpModal" class="help-modal">
+
+    <div class="help-modal-content">
+
+        <button id="closeHelp" class="help-close">&times;</button>
+
+        <h2 data-i18n="help_title_builder">How to use the Builder</h2>
+
+        <ul>
+
+            <li data-i18n="help_builder_1">Click "Add State" to create a new state.</li>
+            <li data-i18n="help_builder_2">Right-click a state to set it as Start, Accept, or Reject.</li>
+            <li data-i18n="help_builder_3">Choose From/To states, fill in Read/Write/Move, then click "Add Transition".</li>
+            <li data-i18n="help_builder_4">Use "Save Machine" to save your work, then "Open Simulator" to run it.</li>
+            <li data-i18n="help_builder_5">Use "Clear" to delete everything and start over.</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="libs/cytoscape.min.js"></script>
+<script src="js/tm.js"></script>
+<script src="js/builder.js"></script>
+
+</body>
+
+</html>

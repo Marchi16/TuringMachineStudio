@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/about.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<span class="logo-circle">TM</span>
+
+<div>
+
+<h2>Turing Machine Studio</h2>
+
+<p data-i18n="tagline">
+Interactive Learning Platform
+</p>
+
+</div>
+
+</div>
+
+<ul>
+
+<li><a href="index.html" data-i18n="nav_home">Home</a></li>
+
+<li><a href="simulator.html" data-i18n="nav_simulator">Simulator</a></li>
+
+<li><a href="builder.html" data-i18n="nav_builder">Builder</a></li>
+
+<li><a href="theory.html" data-i18n="nav_theory">Theory</a></li>
+
+<li><a href="examples.html" data-i18n="nav_examples">Examples</a></li>
+
+<li><a href="exercises.html" data-i18n="nav_exercises">Exercises</a></li>
+
+<li><a href="about.html" class="nav-active" data-i18n="nav_about">About</a></li>
+
+</ul>
+
+<div class="lang-toggle">
+
+<button id="langEL" class="lang-btn">ΕΛ</button>
+<button id="langEN" class="lang-btn">EN</button>
+
+</div>
+
+</nav>
+
+<main class="about-container">
+
+<h1 data-i18n="about_title"></h1>
+
+<p class="subtitle" data-i18n="about_subtitle"></p>
+
+<div class="about-grid">
+
+<div class="about-card">
+
+<div class="icon">📖</div>
+
+<h2 data-i18n="about_project_title"></h2>
+
+<p data-i18n="about_project_text"></p>
+
+</div>
+
+<div class="about-card">
+
+<div class="icon">🎯</div>
+
+<h2 data-i18n="about_goal_title"></h2>
+
+<p data-i18n="about_goal_text"></p>
+
+</div>
+
+<div class="about-card">
+
+<div class="icon">⚙️</div>
+
+<h2 data-i18n="about_features_title"></h2>
+
+<ul>
+
+<li data-i18n="about_feature1"></li>
+<li data-i18n="about_feature2"></li>
+<li data-i18n="about_feature3"></li>
+<li data-i18n="about_feature4"></li>
+<li data-i18n="about_feature5"></li>
+<li data-i18n="about_feature6"></li>
+
+</ul>
+
+</div>
+
+<div class="about-card">
+
+<div class="icon">💻</div>
+
+<h2 data-i18n="about_tech_title"></h2>
+
+<ul>
+
+<li>HTML5</li>
+
+<li>CSS3</li>
+
+<li>JavaScript (ES6)</li>
+
+<li>Cytoscape.js</li>
+
+<li>LocalStorage API</li>
+
+</ul>
+
+</div>
+
+<div class="about-card">
+
+<div class="icon">🏫</div>
+
+<h2 data-i18n="about_university_title"></h2>
+
+<p data-i18n="about_university_text"></p>
+
+</div>
+
+<div class="about-card">
+
+<div class="icon">👨‍💻</div>
+
+<h2 data-i18n="about_author_title"></h2>
+
+<p data-i18n="about_author_text"></p>
+
+</div>
+
+</div>
+
+</main>
+
+<button id="helpButton"
+class="help-button"
+title="Help"
+data-i18n-title="help_tooltip">
+
+?
+
+</button>
+
+<div id="helpModal" class="help-modal">
+
+<div class="help-modal-content">
+
+<button id="closeHelp" class="help-close">
+
+&times;
+
+</button>
+
+<h2 data-i18n="help_title_about"></h2>
+
+<ul>
+
+<li data-i18n="help_about_1"></li>
+
+<li data-i18n="help_about_2"></li>
+
+<li data-i18n="help_about_3"></li>
+
+<li data-i18n="help_about_4"></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/about.js"></script>
+
+</body>
+
+</html>

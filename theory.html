@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Theory</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theory.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <span class="logo-circle">TM</span>
+
+            <div>
+
+                <h2>Turing Machine Studio</h2>
+
+                <p data-i18n="tagline">
+                    Interactive Learning Platform
+                </p>
+
+            </div>
+
+        </div>
+
+        <ul>
+
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+
+            <li><a href="simulator.html" data-i18n="nav_simulator">Simulator</a></li>
+
+            <li><a href="builder.html" data-i18n="nav_builder">Builder</a></li>
+
+            <li><a href="theory.html" class="nav-active" data-i18n="nav_theory">Theory</a></li>
+
+            <li><a href="examples.html" data-i18n="nav_examples">Examples</a></li>
+
+            <li><a href="exercises.html" data-i18n="nav_exercises">Exercises</a></li>
+
+            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+
+        </ul>
+
+        <div class="lang-toggle">
+
+            <button id="langEL" class="lang-btn" data-lang="el">ΕΛ</button>
+            <button id="langEN" class="lang-btn" data-lang="en">EN</button>
+
+        </div>
+
+    </nav>
+
+    <main class="theory-container">
+
+        <h1 data-i18n="theory_title"></h1>
+
+        <p class="subtitle" data-i18n="theory_subtitle"></p>
+
+        <div class="theory-layout">
+
+            <aside class="theory-sidebar">
+
+                <button class="topic active" data-section="introSection" data-i18n="theory_introduction_title">
+                    Introduction
+                </button>
+
+                <button class="topic" data-section="partsSection" data-i18n="theory_parts_title">
+                    Components
+                </button>
+
+                <button class="topic" data-section="operationSection" data-i18n="theory_operation_title">
+                    Operation
+                </button>
+
+                <button class="topic" data-section="exampleSection" data-i18n="theory_example_title">
+                    Example
+                </button>
+
+                <button class="topic" data-section="nextSection" data-i18n="theory_next_title">
+                    Next Step
+                </button>
+
+            </aside>
+
+            <section class="theory-content">
+
+                <div id="introSection" class="theory-section active">
+
+                    <h2 data-i18n="theory_intro_title"></h2>
+
+                    <p data-i18n="theory_intro_text"></p>
+
+                </div>
+
+                <div id="partsSection" class="theory-section">
+
+                    <h2 data-i18n="theory_parts_title"></h2>
+
+                    <ul>
+
+                        <li data-i18n="theory_parts_tape"></li>
+
+                        <li data-i18n="theory_parts_head"></li>
+
+                        <li data-i18n="theory_parts_states"></li>
+
+                        <li data-i18n="theory_parts_transition"></li>
+
+                    </ul>
+
+                </div>
+
+                <div id="operationSection" class="theory-section">
+
+                    <h2 data-i18n="theory_operation_title"></h2>
+
+                    <ol>
+
+                        <li data-i18n="theory_operation_1"></li>
+
+                        <li data-i18n="theory_operation_2"></li>
+
+                        <li data-i18n="theory_operation_3"></li>
+
+                        <li data-i18n="theory_operation_4"></li>
+
+                        <li data-i18n="theory_operation_5"></li>
+
+                        <li data-i18n="theory_operation_6"></li>
+
+                    </ol>
+
+                </div>
+
+                <div id="exampleSection" class="theory-section">
+
+                    <h2 data-i18n="theory_example_title"></h2>
+
+                    <p data-i18n="theory_example_text"></p>
+
+                </div>
+
+                <div id="nextSection" class="theory-section">
+
+                    <h2 data-i18n="theory_next_title"></h2>
+
+                    <p data-i18n="theory_next_text"></p>
+
+                    <button class="primary-btn" onclick="location.href='builder.html'" data-i18n="nav_builder">
+                        Builder
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/theory.js"></script>
+
+</body>
+
+</html>

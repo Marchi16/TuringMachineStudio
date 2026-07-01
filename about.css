@@ -1,0 +1,179 @@
+/* ==========================================
+   ABOUT PAGE
+========================================== */
+
+.about-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:60px;
+
+}
+
+.about-container h1{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    color:#64748B;
+
+    font-size:20px;
+
+    margin-bottom:45px;
+
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+    gap:30px;
+
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.about-card{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.about-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.icon{
+
+    width:70px;
+
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    background:#DBEAFE;
+
+    border-radius:50%;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
+   TITLES
+========================================== */
+
+.about-card h2{
+
+    color:#1E293B;
+
+    margin-bottom:18px;
+
+    font-size:28px;
+
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.about-card p{
+
+    color:#475569;
+
+    line-height:1.9;
+
+    font-size:17px;
+
+}
+
+.about-card ul{
+
+    padding-left:22px;
+
+    color:#475569;
+
+    line-height:2;
+
+    font-size:17px;
+
+}
+
+.about-card li{
+
+    margin-bottom:8px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.about-container{
+
+    padding:25px;
+
+}
+
+.about-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.about-card{
+
+    padding:25px;
+
+}
+
+.about-card h2{
+
+    font-size:24px;
+
+}
+
+.subtitle{
+
+    font-size:18px;
+
+}
+
+}

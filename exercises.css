@@ -1,0 +1,277 @@
+/* ==========================================
+   EXERCISES PAGE
+========================================== */
+
+.exercises-container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 60px;
+}
+
+.exercises-container h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #64748B;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+.progress-bar-wrapper {
+    margin-bottom: 45px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: #E2E8F0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2563EB, #60A5FA);
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.exercise-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.exercise-card h2 {
+    margin: 18px 0;
+    color: #1E293B;
+    font-size: 28px;
+}
+
+.exercise-card p {
+    color: #64748B;
+    line-height: 1.8;
+    min-height: 80px;
+    font-size: 16px;
+    flex: 1;
+}
+
+/* ==========================================
+   LEVEL BADGES (same as examples)
+========================================== */
+
+.level {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.beginner    { background: #DCFCE7; color: #166534; }
+.intermediate{ background: #DBEAFE; color: #1D4ED8; }
+.advanced    { background: #FEE2E2; color: #B91C1C; }
+
+/* ==========================================
+   STATUS BADGE
+========================================== */
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #94A3B8;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #CBD5E1;
+    transition: background .3s;
+}
+
+.status-badge.solved {
+    color: #166534;
+}
+
+.status-badge.solved .status-dot {
+    background: #22C55E;
+}
+
+/* ==========================================
+   TAGS
+========================================== */
+
+.exercise-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+}
+
+.exercise-tags span {
+    background: #EFF6FF;
+    color: #2563EB;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   DIFFICULTY
+========================================== */
+
+.difficulty {
+    margin-bottom: 16px;
+    color: #475569;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* ==========================================
+   HINT BOX
+========================================== */
+
+.hint-box {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: #92400E;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.hint-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   CARD ACTIONS
+========================================== */
+
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.btn-hint {
+    flex: 1;
+    padding: 13px;
+    border: 2px solid #E2E8F0;
+    border-radius: 10px;
+    background: white;
+    color: #475569;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-hint:hover {
+    border-color: #2563EB;
+    color: #2563EB;
+}
+
+.btn-try {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #2563EB;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-try:hover {
+    transform: translateY(-3px);
+    background: #1D4ED8;
+}
+
+/* ==========================================
+   SOLVED CARD STATE
+========================================== */
+
+.exercise-card.solved {
+    border: 2px solid #BBF7D0;
+}
+
+.exercise-card.solved .btn-try {
+    background: #22C55E;
+}
+
+.exercise-card.solved .btn-try:hover {
+    background: #16A34A;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+    .exercises-container {
+        padding: 25px;
+    }
+
+    .exercise-card h2 {
+        font-size: 24px;
+    }
+}
