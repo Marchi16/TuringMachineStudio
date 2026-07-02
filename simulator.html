@@ -2,23 +2,18 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232563EB'/><text x='50' y='68' font-size='42' font-family='Inter,sans-serif' font-weight='700' fill='white' text-anchor='middle'>TM</text></svg>">
     <title>Turing Machine Simulator</title>
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="simulator.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
+
     <nav class="navbar">
         <div class="logo">
             <span class="logo-circle">TM</span>
@@ -27,171 +22,128 @@
                 <p data-i18n="tagline">Interactive Learning Platform</p>
             </div>
         </div>
-
-         <ul>
-            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+        <ul>
+            <li><a href="index.html"     data-i18n="nav_home">Home</a></li>
             <li><a href="simulator.html" class="nav-active" data-i18n="nav_simulator">Simulator</a></li>
-            <li><a href="builder.html" data-i18n="nav_builder">Builder</a></li>
-            <li><a href="theory.html" data-i18n="nav_theory">Theory</a></li>
-            <li><a href="examples.html" data-i18n="nav_examples">Examples</a></li>
+            <li><a href="builder.html"   data-i18n="nav_builder">Builder</a></li>
+            <li><a href="theory.html"    data-i18n="nav_theory">Theory</a></li>
+            <li><a href="examples.html"  data-i18n="nav_examples">Examples</a></li>
             <li><a href="exercises.html" data-i18n="nav_exercises">Exercises</a></li>
-            <li><a href="about.html" data-i18n="nav_about">About</a></li>
+            <li><a href="about.html"     data-i18n="nav_about">About</a></li>
         </ul>
-
-
-          <!-- ================= LANGUAGE TOGGLE ================= -->
-
-    <div class="lang-toggle" id="langToggle">
-
-        <button id="langEL" class="lang-btn" data-lang="el">ΕΛ</button>
-        <button id="langEN" class="lang-btn" data-lang="en">EN</button>
-
-    </div>
+        <div class="lang-toggle" id="langToggle">
+            <button id="langEL" class="lang-btn" data-lang="el">ΕΛ</button>
+            <button id="langEN" class="lang-btn" data-lang="en">EN</button>
+        </div>
     </nav>
 
-
     <main class="simulator-container">
-    <h1 data-i18n="tm_simulator">Turing Machine Simulator</h1>
-    <p class="subtitle" data-i18n="card_simulator_desc"> Build and execute a Turing Machine step-by-step. </p>
 
-    <section class="machine-panel">
+        <h1 data-i18n="tm_simulator">Turing Machine Simulator</h1>
+        <p class="subtitle" data-i18n="card_simulator_desc">Build and execute a Turing Machine step-by-step.</p>
 
-    <h2 data-i18n="machine_definition">Machine Definition</h2>
+        <!-- Machine Definition -->
+        <section class="machine-panel">
+            <h2 data-i18n="machine_definition">Machine Definition</h2>
+            <div class="template-selector">
+                <label for="templateSelect" data-i18n="template_label">Quick Templates:</label>
+                <select id="templateSelect">
+                    <option value=""          data-i18n="template_none">-- Select a template --</option>
+                    <option value="palindrome" data-i18n="template_palindrome">Palindrome Checker (a,b)</option>
+                    <option value="reverse"    data-i18n="template_reverse">Reverse String (a,b)</option>
+                    <option value="anbn"       data-i18n="template_anbn">aⁿbⁿ (a,b)</option>
+                    <option value="equal01"    data-i18n="template_0n1n">0ⁿ1ⁿ (0,1)</option>
+                </select>
+            </div>
+            <textarea id="machineInput" placeholder="Example:
+q0,a,q1,X,R
+q1,b,q2,Y,L
+..."></textarea>
+        </section>
 
-        <div class="template-selector">
+        <!-- Machine Information -->
+        <section class="machine-panel">
+            <h2 data-i18n="machine_information">Machine Information</h2>
+            <div class="machine-information">
+                <div class="info-card">
+                    <h3 data-i18n="language_label">Language</h3>
+                    <p id="machineLanguage">-</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-i18n="description_label">Description</h3>
+                    <p id="machineDescription">-</p>
+                </div>
+                <div class="info-card">
+                    <h3 data-i18n="author_label">Author</h3>
+                    <p id="machineAuthor">-</p>
+                </div>
+            </div>
+        </section>
 
-            <label for="templateSelect" data-i18n="template_label">Quick Templates:</label>
+        <!-- Input Tape -->
+        <section class="input-panel">
+            <h2 data-i18n="input_tape">Input Tape</h2>
+            <input id="inputWord" type="text"
+                   data-i18n-placeholder="input_example"
+                   placeholder="Example: aabb">
+        </section>
 
-            <select id="templateSelect">
+        <!-- Controls -->
+        <section class="controls">
+            <button id="loadMachine"  data-i18n="load_button">Load Machine</button>
+            <button id="stepButton"   data-i18n="step_button">Step</button>
+            <button id="runButton"    data-i18n="run_button">Run</button>
+            <button id="resetButton"  data-i18n="reset_button">Reset</button>
+        </section>
 
-                <option value="" data-i18n="template_none">-- Select a template --</option>
-                <option value="palindrome" data-i18n="template_palindrome">Palindrome Checker (a,b)</option>
-                <option value="palindrome" data-i18n="template_reverse">Reverse String (a,b)</option>
-                <option value="anbn">a^nb^n (a,b)</option>
-                
-            </select>
+        <!-- Status -->
+        <section class="status">
+            <div>
+                <span data-i18n="current_state">Current State</span>
+                <h2 id="currentState">-</h2>
+            </div>
+            <div>
+                <span data-i18n="head_position">Head Position</span>
+                <h2 id="headPosition">0</h2>
+            </div>
+            <div>
+                <span data-i18n="steps">Steps</span>
+                <h2 id="stepCounter">0</h2>
+            </div>
+        </section>
+
+        <!-- Tape + Explanation side by side -->
+        <div class="tape-explanation-wrapper">
+
+            <section class="tape-section">
+                <h2 data-i18n="tape">Tape</h2>
+                <div id="tape"></div>
+            </section>
+
+            <section class="explanation">
+                <h2 data-i18n="explain_mode">Explain Mode</h2>
+                <div id="explanationBox" data-i18n="explanation_box">Load a machine to begin.</div>
+            </section>
 
         </div>
-
-        <textarea id="machineInput"
-        placeholder="Example:
-        q0,a,q1,X,R
-        q1,b,q2,Y,L
-        ..."></textarea>
-
-    </section>
-
-
-    <section class="machine-panel">
-        <h2 data-i18n="machine_information">
-            Machine Information
-        </h2>
-        <div class="machine-information">
-            <div class="info-card">
-                <h3 data-i18n="language_label">
-                    Language
-                </h3>
-                <p id="machineLanguage">
-                    -
-                </p>
-            </div>
-            <div class="info-card">
-                <h3 data-i18n="description_label">
-                    Description
-                </h3>
-                <p id="machineDescription">
-                    -
-                </p>
-            </div>
-            <div class="info-card">
-                <h3 data-i18n="author_label">
-                    Author
-                </h3>
-                <p id="machineAuthor">
-                    -
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="input-panel">
-
-        <h2 data-i18n="input_tape">Input Tape</h2>
-        <input
-        id="inputWord"
-        type="text"
-        data-i18n-placeholder="input_example"
-        placeholder="Example: aabb">
-
-    </section>
-
-
-    <section class="controls">
-        <button id="loadMachine" data-i18n="load_button"> Load Machine </button>
-        <button id="stepButton" data-i18n="step_button"> Step </button>
-        <button id="runButton" data-i18n="run_button"> Run </button>
-        <button id="resetButton" data-i18n="reset_button"> Reset </button>
-    </section>
-
-
-<section class="status">
-
-    <div>
-
-        <span data-i18n="current_state">Current State</span>
-        <h2 id="currentState"> - </h2>
-
-    </div>
-
-    <div>
-
-        <span data-i18n="head_position">Head Position</span>
-        <h2 id="headPosition">0</h2>
-
-    </div>
-
-    <div>
-
-        <span data-i18n="steps">Steps</span>
-        <h2 id="stepCounter">0</h2>
-
-    </div>
-
-</section>
-
-
-    <section class="tape-section">
-        <h2 data-i18n="tape">Tape</h2>
-        <div id="tape"></div>
-    </section>
-
-
-    <section class="explanation">
-        <h2 data-i18n="explain_mode">Explain Mode</h2>
-        <div id="explanationBox" data-i18n="explanation_box">Load a machine to begin. </div>
-    </section>
 
     </main>
 
-   <button id="helpButton" class="help-button" data-i18n-title="help_tooltip" title="Help">?</button>
+    <button id="helpButton" class="help-button" data-i18n-title="help_tooltip" title="Help">?</button>
 
-        <div id="helpModal" class="help-modal">
-
-            <div class="help-modal-content">
-                <button id="closeHelp" class="help-close">&times;</button>
-                <h2 data-i18n="help_title_simulator">How to use the Simulator</h2>
-                <ul>
-
-                    <li data-i18n="help_simulator_1">The machine you saved in the Builder loads here automatically.</li>
-                    <li data-i18n="help_simulator_2">Type an input string onto the tape and click "Load Input".</li>
-                    <li data-i18n="help_simulator_3">Use "Step" to run the machine one step at a time, or "Run" to execute it automatically.</li>
-                    <li data-i18n="help_simulator_4">Watch the current state, head position, and tape update in real time.</li>
-                    <li data-i18n="help_simulator_5">When the machine halts, you'll see whether the input was accepted or rejected. Click "Reset" to start over.</li>
-
-                </ul>
-            </div>
+    <div id="helpModal" class="help-modal">
+        <div class="help-modal-content">
+            <button id="closeHelp" class="help-close">&times;</button>
+            <h2 data-i18n="help_title_simulator">How to use the Simulator</h2>
+            <ul>
+                <li data-i18n="help_simulator_1"></li>
+                <li data-i18n="help_simulator_2"></li>
+                <li data-i18n="help_simulator_3"></li>
+                <li data-i18n="help_simulator_4"></li>
+                <li data-i18n="help_simulator_5"></li>
+            </ul>
         </div>
+    </div>
 
     <script src="tm.js"></script>
     <script src="i18n.js"></script>
@@ -199,6 +151,5 @@
     <script src="ui.js"></script>
     <script src="simulator.js"></script>
 
- </body>
-
+</body>
 </html>
