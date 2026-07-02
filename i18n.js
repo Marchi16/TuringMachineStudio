@@ -227,11 +227,11 @@ const translations = {
 
         examples_subtitle: "Δοκίμασε έτοιμες Μηχανές Turing και φόρτωσέ τες απευθείας στον προσομοιωτή.",
 
-        difficulty_beginner: "Αρχάριος",
+        difficulty_beginner: "Εύκολο",
 
-        difficulty_intermediate: "Μεσαίο",
+        difficulty_intermediate: "Μέτριο",
 
-        difficulty_advanced: "Προχωρημένο",
+        difficulty_advanced: "Δύσκολο",
 
         example_anbn: "Αναγνωρίζει συμβολοσειρές της μορφής aⁿbⁿ.",
 
@@ -264,6 +264,34 @@ const translations = {
         example_01_desc:"Αναγνωρίζει ίσο αριθμό από 0 και 1.",
 
         load_simulator:"Άνοιγμα στον Προσομοιωτή",
+
+        exercises_title:    "Ασκήσεις Μηχανών Turing",
+        exercises_subtitle: "Δοκίμασε να φτιάξεις τις δικές σου Μηχανές Turing και έλεγξε τις λύσεις σου.",
+        
+        progress_label:  "Πρόοδος:",
+        status_unsolved: "Άλυτη",
+        status_solved:   "Λύθηκε ✓",
+        
+        ex1_desc: "Φτιάξε μια Μηχανή Turing που αποδέχεται συμβολοσειρές της μορφής aⁿbⁿ (n ≥ 1).",
+        ex2_desc: "Φτιάξε μια Μ.Τ. που αποδέχεται οποιαδήποτε συμβολοσειρά πάνω από {a, b} με άρτιο μήκος.",
+        ex3_desc: "Φτιάξε μια Μ.Τ. που προσθέτει 1 σε έναν δυαδικό αριθμό γραμμένο στην ταινία.",
+        ex4_desc: "Φτιάξε μια Μηχανή Turing που αποδέχεται συμβολοσειρές της μορφής 0ⁿ1ⁿ0ⁿ (n ≥ 1).",
+        
+        ex1_hint: "Μάρκαρε το πρώτο 'a' με X, σάρωσε δεξιά για να βρεις το αντίστοιχο 'b' και μάρκαρέ το με Y. Επανάλαβε.",
+        ex2_hint: "Χρησιμοποίησε δύο καταστάσεις για να εναλλάσσεις ζυγό/μονό. Αποδέξου όταν χτυπήσεις κενό στη ζυγή κατάσταση.",
+        ex3_hint: "Σάρωσε ως το τελευταίο bit. Αν είναι 0, κάνε το 1 και σταμάτα. Αν είναι 1, κάνε το 0 και μεταφέρσε κρατούμενο αριστερά.",
+        ex4_hint: "Μάρκαρε ένα 0 από αριστερά, ένα 1 από τη μέση, ένα 0 από δεξιά. Επανάλαβε μέχρι να μαρκαριστούν όλα.",
+        
+        show_hint:    "Εμφάνιση Υπόδειξης",
+        hide_hint:    "Απόκρυψη Υπόδειξης",
+        try_exercise: "Δοκίμασέ το",
+        
+        help_title_exercises: "Πώς να χρησιμοποιήσεις τις Ασκήσεις",
+        help_exercises_1: "Διάβασε την περιγραφή κάθε άσκησης και κατανόησε τι ζητείται.",
+        help_exercises_2: "Πάτησε «Εμφάνιση Υπόδειξης» αν χρειαστείς βοήθεια.",
+        help_exercises_3: "Πάτησε «Δοκίμασέ το» για να ανοίξεις τον Simulator και να φτιάξεις τη μηχανή σου.",
+        help_exercises_4: "Η πρόοδός σου αποθηκεύεται αυτόματα — οι λυμένες ασκήσεις εμφανίζονται με πράσινο.",
+ 
 
 
     },
@@ -530,6 +558,33 @@ const translations = {
         example_01_desc:"Reverses a string on the tape.",
 
         load_simulator:"Load in Simulator",
+
+        exercises_title:    "Turing Machine Exercises",
+        exercises_subtitle: "Try building your own Turing Machines and verify your solutions.",
+        
+        progress_label:  "Progress:",
+        status_unsolved: "Unsolved",
+        status_solved:   "Solved ✓",
+        
+        ex1_desc: "Build a Turing Machine that accepts strings of the form aⁿbⁿ (n ≥ 1).",
+        ex2_desc: "Build a TM that accepts any string over {a, b} with even length.",
+        ex3_desc: "Build a TM that adds 1 to a binary number written on the tape.",
+        ex4_desc: "Build a Turing Machine that accepts strings of the form 0ⁿ1ⁿ0ⁿ (n ≥ 1).",
+        
+        ex1_hint: "Mark the first 'a' with X, scan right to find the matching 'b' and mark it with Y. Repeat.",
+        ex2_hint: "Use two states to alternate even/odd parity. Accept when you hit blank in the even state.",
+        ex3_hint: "Scan to the rightmost bit. If it's 0, flip to 1 and halt. If it's 1, flip to 0 and carry left.",
+        ex4_hint: "Mark one 0 from the left, one 1 from the middle, one 0 from the right. Repeat until all are marked.",
+        
+        show_hint:    "Show Hint",
+        hide_hint:    "Hide Hint",
+        try_exercise: "Try it",
+        
+        help_title_exercises: "How to use the Exercises",
+        help_exercises_1: "Read the description of each exercise and understand what is required.",
+        help_exercises_2: "Click \"Show Hint\" if you need guidance.",
+        help_exercises_3: "Click \"Try it\" to open the Simulator and build your machine.",
+        help_exercises_4: "Your progress is saved automatically — solved exercises appear in green.",
             }
 
 };
