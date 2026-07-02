@@ -668,3 +668,26 @@ document.addEventListener("DOMContentLoaded", ()=>{
     updateStatus();
 
 });
+
+
+// ===============================
+// Load template from Examples page
+// ===============================
+
+const selectedTemplate =
+localStorage.getItem("selectedTemplate");
+
+if(selectedTemplate){
+
+    templateSelect.value =
+    selectedTemplate;
+
+    templateSelect.dispatchEvent(
+        new Event("change")
+    );
+
+    localStorage.removeItem(
+        "selectedTemplate"
+    );
+
+}
