@@ -442,20 +442,20 @@ document
 
     );
 
+    const edgeId = Date.now().toString();
+
     cy.add({
         group:"edges",
         data:{
-            id: Date.now().toString(),
+            id: edgeId,
             source: from,
             target: to,
-            label:
-            `${read}/${write},${move}`
+            label: `${read}/${write},${move}`
         }
-
     });
 
-    const row =
-    document.createElement("tr");
+    const row = document.createElement("tr");
+    row.dataset.edgeId = edgeId;
 
     row.innerHTML = `
         <td>${from}</td>
@@ -464,7 +464,6 @@ document
         <td>${move}</td>
         <td>${to}</td>
         <td>✓</td>
-
     `;
 
     transitionTable.appendChild(row);
@@ -761,3 +760,80 @@ function loadMachine(data){
     refreshJSON();
 
 }
+// ===================================
+// DELETE KEY SUPPORT
+// ===================================
+
+document.addEventListener("keydown", (e) => {
+
+    if(e.key !== "Delete") return;
+
+    const tag = document.activeElement.tagName;
+    if(tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+    if(!selectedNode) return;
+
+    document.getElementById("deleteSelected").onclick();
+
+});
+
+
+// ===================================
+// TRANSITION ROW RIGHT-CLICK MENU
+// ===================================
+
+const transitionContextMenu =
+document.getElementById("transitionContextMenu");
+
+let selectedRow = null;
+
+transitionTable.addEventListener("contextmenu", (e) => {
+
+    e.preventDefault();
+
+    const row = e.target.closest("tr");
+    if(!row || !row.dataset.edgeId) return;
+
+    selectedRow = row;
+
+    Array.from(transitionTable.rows).forEach(r =>
+        r.classList.remove("row-selected")
+    );
+    row.classList.add("row-selected");
+
+    transitionContextMenu.style.display = "flex";
+    transitionContextMenu.style.left = e.pageX + "px";
+    transitionContextMenu.style.top  = e.pageY + "px";
+
+});
+
+document.addEventListener("click", () => {
+    if(transitionContextMenu)
+        transitionContextMenu.style.display = "none";
+});
+
+document.getElementById("deleteTransition").onclick = () => {
+
+    if(!selectedRow) return;
+
+    const from  = selectedRow.cells[0].textContent;
+    const read  = selectedRow.cells[1].textContent;
+    const edgeId = selectedRow.dataset.edgeId;
+
+    // Αφαίρεσε από machine
+    if(machine.transitions[from]){
+        delete machine.transitions[from][read];
+        if(Object.keys(machine.transitions[from]).length === 0){
+            delete machine.transitions[from];
+        }
+    }
+
+    // Αφαίρεσε ΜΟΝΟ το συγκεκριμένο edge με το id
+    const edge = cy.getElementById(edgeId);
+    if(edge) cy.remove(edge);
+
+    selectedRow.remove();
+    selectedRow = null;
+    refreshJSON();
+
+};
