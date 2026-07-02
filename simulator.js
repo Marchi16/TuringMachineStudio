@@ -154,25 +154,76 @@ q3,Y,q3,Y,R
 q3,□,qAccept,□,S
 q3,a,qReject,a,S
 q3,b,qReject,b,S
-q3,X,q3,X,R` };
+q3,X,q3,X,R`,
+
+
+equal01:
+`start:q0
+accept:qAccept
+reject:qReject
+
+q0,0,q1,X,R
+q0,Y,q3,Y,R
+q0,□,qReject,□,S
+
+q1,0,q1,0,R
+q1,Y,q1,Y,R
+q1,1,q2,Y,L
+q1,□,qReject,□,S
+
+q2,0,q2,0,L
+q2,Y,q2,Y,L
+q2,X,q0,X,R
+
+q3,Y,q3,Y,R
+q3,□,qAccept,□,S`
+
+};
 
 
 if(templateSelect){
 
     templateSelect.addEventListener("change", ()=>{
 
-        const key = templateSelect.value;
-
-        if(key && templates[key]){
-
-            machineInput.value = templates[key];
-
-        }
+            loadTemplate(templateSelect.value);
 
     });
 
 }
 
+function loadTemplate(name){
+
+    if(!templates[name]) return;
+
+    // Γέμισε το textarea
+    machineInput.value = templates[name];
+
+    // Parse της μηχανής
+    const result = parseMachineDefinition(machineInput.value);
+
+    if(result.errors.length > 0){
+
+        console.error(result.errors);
+
+        return;
+
+    }
+
+    machine = result.machine;
+
+    lastLoadedWord = inputWord.value || "";
+
+    machine.loadInput(lastLoadedWord);
+
+    renderTape();
+    updateStatus();
+
+    explanationBox.textContent =
+    t("explain_loaded");
+
+    explanationBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
+}
 
 // ===================================
 // I18N HELPERS (χρησιμοποιεί το ίδιο
@@ -405,6 +456,8 @@ loadMachineBtn.addEventListener("click", ()=>{
     explanationBox.textContent =
     t("explain_loaded");
 
+    explanationBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
 });
 
 
@@ -437,6 +490,8 @@ stepButton.addEventListener("click", ()=>{
 
     renderTape();
     updateStatus();
+
+    explanationBox.scrollIntoView({ behavior: "smooth", block: "center" });
 
     if(result.finished){
 
@@ -504,6 +559,8 @@ runButton.addEventListener("click", ()=>{
     renderTape();
     updateStatus();
 
+    explanationBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
     if(result.finished){
 
         showHaltMessage(result.accepted);
@@ -534,6 +591,7 @@ resetButton.addEventListener("click", ()=>{
 
     renderTape();
     updateStatus();
+    explanationBox.scrollIntoView({ behavior: "smooth", block: "center" });
 
     explanationBox.textContent =
     t("explain_loaded");
@@ -667,27 +725,21 @@ document.addEventListener("DOMContentLoaded", ()=>{
     renderTape();
     updateStatus();
 
-});
+    const selectedTemplate = localStorage.getItem("selectedTemplate");
 
+    if(selectedTemplate){
 
-// ===============================
-// Load template from Examples page
-// ===============================
+    // 1. set dropdown
+    templateSelect.value = selectedTemplate;
 
-const selectedTemplate =
-localStorage.getItem("selectedTemplate");
+    // 2. trigger load logic AFTER everything is ready
+    setTimeout(() => {
 
-if(selectedTemplate){
+        templateSelect.dispatchEvent(new Event("change"));
 
-    templateSelect.value =
-    selectedTemplate;
+    }, 0);
 
-    templateSelect.dispatchEvent(
-        new Event("change")
-    );
-
-    localStorage.removeItem(
-        "selectedTemplate"
-    );
-
+    localStorage.removeItem("selectedTemplate");
 }
+
+});
