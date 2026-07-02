@@ -144,28 +144,28 @@ input:focus{
    TAPE
 ========================================== */
 
-#tape{
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    flex-wrap:wrap;
-    min-height:90px;
+#tape {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;  /* ← άλλαξε από wrap σε nowrap */
+    overflow-x: auto;   /* ← scroll αν δεν χωράνε */
+    min-height: 90px;
 }
 
 /* ένα κελί της ταινίας */
 
 .tape-cell{
-    width:60px;
-    height:60px;
+    width:50px;
+    height:50px;
     background:#F8FAFC;
     border:2px solid #CBD5E1;
     border-radius:10px;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:28px;
+    font-size:22px;
     font-weight:bold;
     transition:.3s;
 
@@ -280,4 +280,26 @@ font-size:36px;
     color:#334155;
     line-height:1.6;
     white-space:pre-wrap;
+}
+
+/* ==========================================
+   SIDE BY SIDE: TAPE + EXPLANATION
+========================================== */
+
+.tape-explanation-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.tape-explanation-wrapper .tape-section,
+.tape-explanation-wrapper .explanation {
+    margin-bottom: 0;
+}
+
+@media(max-width: 900px) {
+    .tape-explanation-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
