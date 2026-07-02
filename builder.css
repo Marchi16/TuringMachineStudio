@@ -576,3 +576,40 @@ background:#DC2626;
 
 }
 
+
+/* ==========================================
+   TRANSITION BUTTONS
+========================================== */
+
+.transition-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.transition-buttons button {
+    padding: 13px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #2563EB;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.transition-buttons button:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   TRANSITION ROW SELECTED
+========================================== */
+
+.row-selected {
+    background: #EFF6FF !important;
+}
