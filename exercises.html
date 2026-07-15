@@ -5,11 +5,12 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232563EB'/><text x='50' y='68' font-size='42' font-family='Inter,sans-serif' font-weight='700' fill='white' text-anchor='middle'>TM</text></svg>">
 
-<title>Examples</title>
+<title>Exercises</title>
 
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="examples.css">
+<link rel="stylesheet" href="exercises.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -20,258 +21,226 @@
 
 <nav class="navbar">
 
-<div class="logo">
+    <div class="logo">
+        <span class="logo-circle">TM</span>
+        <div>
+            <h2>Turing Machine Studio</h2>
+            <p data-i18n="tagline"></p>
+        </div>
+    </div>
 
-<span class="logo-circle">TM</span>
+    <ul>
+        <li><a href="index.html"     data-i18n="nav_home"></a></li>
+        <li><a href="simulator.html" data-i18n="nav_simulator"></a></li>
+        <li><a href="builder.html"   data-i18n="nav_builder"></a></li>
+        <li><a href="theory.html"    data-i18n="nav_theory"></a></li>
+        <li><a href="examples.html"  data-i18n="nav_examples"></a></li>
+        <li><a href="exercises.html" class="nav-active" data-i18n="nav_exercises"></a></li>
+        <li><a href="about.html"     data-i18n="nav_about"></a></li>
+    </ul>
 
-<div>
-
-<h2>Turing Machine Studio</h2>
-
-<p data-i18n="tagline"></p>
-
-</div>
-
-</div>
-
-<ul>
-
-<li><a href="index.html" data-i18n="nav_home"></a></li>
-
-<li><a href="simulator.html" data-i18n="nav_simulator"></a></li>
-
-<li><a href="builder.html" data-i18n="nav_builder"></a></li>
-
-<li><a href="theory.html" data-i18n="nav_theory"></a></li>
-
-<li><a href="examples.html" class="nav-active" data-i18n="nav_examples"></a></li>
-
-<li><a href="exercises.html" data-i18n="nav_exercises"></a></li>
-
-<li><a href="about.html" data-i18n="nav_about"></a></li>
-
-</ul>
-
-<div class="lang-toggle">
-
-<button id="langEL" class="lang-btn">ΕΛ</button>
-
-<button id="langEN" class="lang-btn">EN</button>
-
-</div>
+    <div class="lang-toggle">
+        <button id="langEL" class="lang-btn">ΕΛ</button>
+        <button id="langEN" class="lang-btn">EN</button>
+    </div>
 
 </nav>
 
-<main class="examples-container">
+<main class="exercises-container">
 
-<h1 data-i18n="examples_title"></h1>
+    <h1 data-i18n="exercises_title"></h1>
 
-<p class="subtitle"
-data-i18n="examples_subtitle"></p>
+    <p class="subtitle" data-i18n="exercises_subtitle"></p>
 
-<div class="examples-grid">
+    <!-- Progress bar -->
+    <div class="progress-bar-wrapper">
 
-<div class="example-card">
+        <div class="progress-info">
+            <span data-i18n="progress_label"></span>
+            <span id="progressText">0 / 4</span>
+        </div>
 
-    <span class="level beginner"
-          data-i18n="level_beginner">
-        Beginner
-    </span>
-
-    <h2>aⁿbⁿ</h2>
-
-    <p data-i18n="example_ab_desc">
-        Recognizes strings of the form aⁿbⁿ.
-    </p>
-
-    <div class="example-tags">
-
-        <span>Deterministic</span>
-        <span>Single Tape</span>
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
 
     </div>
 
-    <div class="difficulty">
+    <div class="exercises-grid">
 
-        <span data-i18n="difficulty">Difficulty:</span>
+        <!-- Exercise 1 -->
+        <div class="exercise-card" data-exercise="ex1">
 
-        ★☆☆☆☆
+            <div class="card-header">
+                <span class="level beginner" data-i18n="level_beginner"></span>
+                <span class="status-badge" id="status-ex1">
+                    <span class="status-dot"></span>
+                    <span data-i18n="status_unsolved"></span>
+                </span>
+            </div>
+
+            <h2>aⁿbⁿ Recognition</h2>
+
+            <p data-i18n="ex1_desc"></p>
+
+            <div class="exercise-tags">
+                <span>Marking</span>
+                <span>Single Tape</span>
+            </div>
+
+            <div class="difficulty">
+                <span data-i18n="difficulty"></span>
+                ★☆☆☆☆
+            </div>
+
+            <div class="hint-box" id="hint-ex1" style="display:none">
+                <span class="hint-icon">💡</span>
+                <span data-i18n="ex1_hint"></span>
+            </div>
+
+            <div class="card-actions">
+                <button class="btn-hint" data-target="hint-ex1" data-i18n="show_hint"></button>
+                <button class="btn-try"  data-exercise="ex1"    data-i18n="try_exercise"></button>
+            </div>
+
+        </div>
+
+        <!-- Exercise 2 -->
+        <div class="exercise-card" data-exercise="ex2">
+
+            <div class="card-header">
+                <span class="level beginner" data-i18n="level_beginner"></span>
+                <span class="status-badge" id="status-ex2">
+                    <span class="status-dot"></span>
+                    <span data-i18n="status_unsolved"></span>
+                </span>
+            </div>
+
+            <h2>Even Length Strings</h2>
+
+            <p data-i18n="ex2_desc"></p>
+
+            <div class="exercise-tags">
+                <span>Counting</span>
+                <span>Parity</span>
+            </div>
+
+            <div class="difficulty">
+                <span data-i18n="difficulty"></span>
+                ★★☆☆☆
+            </div>
+
+            <div class="hint-box" id="hint-ex2" style="display:none">
+                <span class="hint-icon">💡</span>
+                <span data-i18n="ex2_hint"></span>
+            </div>
+
+            <div class="card-actions">
+                <button class="btn-hint" data-target="hint-ex2" data-i18n="show_hint"></button>
+                <button class="btn-try"  data-exercise="ex2"    data-i18n="try_exercise"></button>
+            </div>
+
+        </div>
+
+        <!-- Exercise 3 -->
+        <div class="exercise-card" data-exercise="ex3">
+
+            <div class="card-header">
+                <span class="level intermediate" data-i18n="level_intermediate"></span>
+                <span class="status-badge" id="status-ex3">
+                    <span class="status-dot"></span>
+                    <span data-i18n="status_unsolved"></span>
+                </span>
+            </div>
+
+            <h2>Binary Increment</h2>
+
+            <p data-i18n="ex3_desc"></p>
+
+            <div class="exercise-tags">
+                <span>Arithmetic</span>
+                <span>Carry</span>
+            </div>
+
+            <div class="difficulty">
+                <span data-i18n="difficulty"></span>
+                ★★★☆☆
+            </div>
+
+            <div class="hint-box" id="hint-ex3" style="display:none">
+                <span class="hint-icon">💡</span>
+                <span data-i18n="ex3_hint"></span>
+            </div>
+
+            <div class="card-actions">
+                <button class="btn-hint" data-target="hint-ex3" data-i18n="show_hint"></button>
+                <button class="btn-try"  data-exercise="ex3"    data-i18n="try_exercise"></button>
+            </div>
+
+        </div>
+
+        <!-- Exercise 4 -->
+        <div class="exercise-card" data-exercise="ex4">
+
+            <div class="card-header">
+                <span class="level advanced" data-i18n="level_advanced"></span>
+                <span class="status-badge" id="status-ex4">
+                    <span class="status-dot"></span>
+                    <span data-i18n="status_unsolved"></span>
+                </span>
+            </div>
+
+            <h2>0ⁿ1ⁿ0ⁿ</h2>
+
+            <p data-i18n="ex4_desc"></p>
+
+            <div class="exercise-tags">
+                <span>Multi-pass</span>
+                <span>Counting</span>
+            </div>
+
+            <div class="difficulty">
+                <span data-i18n="difficulty"></span>
+                ★★★★☆
+            </div>
+
+            <div class="hint-box" id="hint-ex4" style="display:none">
+                <span class="hint-icon">💡</span>
+                <span data-i18n="ex4_hint"></span>
+            </div>
+
+            <div class="card-actions">
+                <button class="btn-hint" data-target="hint-ex4" data-i18n="show_hint"></button>
+                <button class="btn-try"  data-exercise="ex4"    data-i18n="try_exercise"></button>
+            </div>
+
+        </div>
 
     </div>
-
-    <button
-        class="load-example"
-        data-template="anbn"
-        data-i18n="load_simulator">
-        Load in Simulator
-    </button>
-</div>
-
-<!-- Palindrome -->
-<div class="example-card">
-
-    <span class="level intermediate"
-          data-i18n="level_intermediate">
-        Intermediate
-    </span>
-
-    <h2>Palindrome</h2>
-
-    <p data-i18n="example_pal_desc">
-        Checks whether a string is a palindrome.
-    </p>
-
-    <div class="example-tags">
-
-        <span>Marking</span>
-        <span>Two-way Scan</span>
-
-    </div>
-
-    <div class="difficulty">
-
-        <span data-i18n="difficulty">Difficulty:</span>
-
-        ★★★☆☆
-
-    </div>
-
-    <button
-        class="load-example"
-        data-template="palindrome"
-        data-i18n="load_simulator">
-        Load in Simulator
-    </button>
-
-</div>
-
-
-<!-- Reverse -->
-
-<div class="example-card">
-
-    <span class="level intermediate"
-          data-i18n="level_intermediate">
-        Intermediate
-    </span>
-
-    <h2>Reverse String</h2>
-
-    <p data-i18n="example_reverse_desc">
-        Reverses a string on the tape.
-    </p>
-
-    <div class="example-tags">
-
-        <span>Tape Copy</span>
-        <span>Movement</span>
-
-    </div>
-
-    <div class="difficulty">
-
-        <span data-i18n="difficulty">Difficulty:</span>
-
-        ★★★☆☆
-
-    </div>
-
-    <button
-        class="load-example"
-        data-template="reverse"
-        data-i18n="load_simulator">
-        Load in Simulator
-    </button>
-
-</div>
-
-<!-- Equal 0/1 -->
-
-<div class="example-card">
-
-    <span class="level advanced"
-          data-i18n="level_advanced">
-        Advanced
-    </span>
-
-    <h2>0ⁿ1ⁿ</h2>
-
-    <p data-i18n="example_01_desc">
-        Matches equal numbers of 0s followed by 1s.
-    </p>
-
-    <div class="example-tags">
-
-        <span>Marking</span>
-        <span>Validation</span>
-
-    </div>
-
-    <div class="difficulty">
-
-        <span data-i18n="difficulty">Difficulty:</span>
-
-        ★★★★☆
-
-    </div>
-
-    <button
-        class="load-example"
-        data-template="01n"
-        data-i18n="load_simulator">
-        Load in Simulator
-    </button>
-
-</div>
-
-</div>
 
 </main>
 
-<button
-id="helpButton"
-class="help-button"
-data-i18n-title="help_tooltip">
+<button id="helpButton" class="help-button" data-i18n-title="help_tooltip">?</button>
 
-?
+<div id="helpModal" class="help-modal">
+    <div class="help-modal-content">
 
-</button>
+        <button id="closeHelp" class="help-close">&times;</button>
 
-<div
-id="helpModal"
-class="help-modal">
+        <h2 data-i18n="help_title_exercises"></h2>
 
-<div class="help-modal-content">
+        <ul>
+            <li data-i18n="help_exercises_1"></li>
+            <li data-i18n="help_exercises_2"></li>
+            <li data-i18n="help_exercises_3"></li>
+            <li data-i18n="help_exercises_4"></li>
+        </ul>
 
-<button
-id="closeHelp"
-class="help-close">
-
-&times;
-
-</button>
-
-<h2 data-i18n="help_title_examples"></h2>
-
-<ul>
-
-<li data-i18n="help_examples_1"></li>
-
-<li data-i18n="help_examples_2"></li>
-
-<li data-i18n="help_examples_3"></li>
-
-<li data-i18n="help_examples_4"></li>
-
-</ul>
-
-</div>
-
+    </div>
 </div>
 
 <script src="i18n.js"></script>
-<script src="examples.js"></script>
+<script src="exercises.js"></script>
 
 </body>
-
 </html>
